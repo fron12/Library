@@ -48,3 +48,7 @@ table {
 }
 
 /* My CSS */
+.book-display {
+	display: flex;
+	flex-wrap: wrap;
+}
