@@ -49,6 +49,12 @@ table {
 
 /* My CSS */
 .book-display {
+	margin-top: 15px;
 	display: flex;
+	justify-content: space-evenly;
 	flex-wrap: wrap;
+}
+.submit-button {
+	margin-top: 15px;
+	margin-left: 125px;
 }
