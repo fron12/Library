@@ -1,9 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
+        <form class="inputs">
+            <table>
+                <tr>
+                    <td align="right">
+                        <label for="title">Title:</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="title" id="title" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="author">Author:</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="author" id="author" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="pages">Pages:</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="pages" id="pages" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="read">Read:</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" name="read" id="read" required>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit" class="submit-button" />
+        </form>
         <div class="book-display">
         </div>
         <script src="js/scripts.js"></script>
