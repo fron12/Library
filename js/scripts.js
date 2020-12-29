@@ -28,7 +28,6 @@ function addBookToLibrary(event){
 
 let bookDisplay = document.querySelector(".book-display");
 
-// Display initial books in library
 function populateDisplay() {
     bookDisplay.innerHTML = "";
     updateLibraryIndexes();
@@ -37,6 +36,8 @@ function populateDisplay() {
         bookCard.style.marginBottom = "10px";    
         bookCard.style.border = "1px solid black";
         bookCard.style.padding = "5px";
+        bookCard.setAttribute("index", book.index);
+        bookCard.setAttribute("read-status", book.read);
         bookCard.innerHTML = 
             `Title: ${book.title}<br />
             Author: ${book.author}<br />
@@ -51,10 +52,15 @@ function populateDisplay() {
     removeButton.forEach(button => {
         button.addEventListener("click", removeBook, true);
     })
+    let updateButton = document.querySelectorAll(".update");
+    updateButton.forEach(button => {
+        button.addEventListener("click", changeReadStatus, true);
+    })
 }
 
 function removeBook(event){
-    myLibrary.splice(event.target.index - 1, 1);
+    let targetIndex = event.target.parentNode.getAttribute("index");
+    myLibrary.splice(targetIndex - 1, 1);
     populateDisplay();
 }
 
@@ -62,6 +68,18 @@ function updateLibraryIndexes(){
     for(let i = 0; i < myLibrary.length; i++){
         myLibrary[i].index = i + 1;
     }
+}
+
+function changeReadStatus(event){
+    let targetIndex = event.target.parentNode.getAttribute("index");
+    let targetStatus = event.target.parentNode.getAttribute("read-status");
+    if(targetStatus === "Read"){
+        myLibrary[targetIndex - 1].read = "Unread";
+    }
+    else{
+        myLibrary[targetIndex - 1].read = "Read"
+    }
+    populateDisplay();
 }
 
 let form = document.querySelector(".inputs");
